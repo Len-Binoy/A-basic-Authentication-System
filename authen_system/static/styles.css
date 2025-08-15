@@ -1,0 +1,165 @@
+/* Only CSS below, no HTML or JS */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+.container {max-width:1200px; margin:0 auto; padding:20px;}
+.header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    animation: fadeInDown 0.8s;
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.header-content {display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;}
+.logo {
+    font-size:2.2rem;
+    font-weight:900;
+    color:white;
+    text-shadow:0 2px 8px rgba(0,0,0,0.25);
+    letter-spacing: 2px;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+.nav-links {display:flex; gap:15px; align-items:center; flex-wrap:wrap;}
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+}
+.nav-link:hover {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 12px rgba(255,255,255,0.25);
+    transform: scale(1.08);
+}
+.nav-link.active {background: rgba(255,255,255,0.28);}
+.logout-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border:none; color:white;
+    padding:10px 22px;
+    border-radius:50px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    text-decoration:none;
+    box-shadow: 0 2px 12px rgba(238,90,36,0.18);
+    letter-spacing: 1px;
+}
+.logout-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 18px rgba(238,90,36,0.32);
+}
+.main-content {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    animation: fadeInUp 1s;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.welcome-section {text-align:center; margin-bottom:40px;}
+.welcome-title {
+    font-size: 2.7rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.welcome-subtitle {font-size:1.15rem; color:#666;}
+.form-group {margin-bottom:24px;}
+.form-label {
+    display:block;
+    margin-bottom:8px;
+    font-weight:700;
+    color:#667eea;
+    letter-spacing: 0.5px;
+}
+.form-input {
+    width:100%;
+    padding:14px;
+    border:2px solid #e9ecef;
+    border-radius:12px;
+    font-size:1rem;
+    background: #f8f9fa;
+    transition: border-color 0.3s;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+}
+.form-input:focus {
+    border-color:#667eea;
+    outline:none;
+    background: #fff;
+}
+.form-button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color:white;
+    border:none;
+    padding: 14px 34px;
+    border-radius: 12px;
+    font-weight:700;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    font-size:1.08rem;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.form-button:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(102,126,234,0.22);
+}
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+    text-align: center;
+}
+.flash {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 8px 0;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.10);
+    animation: fadeIn 0.7s;
+}
+.flash.success {background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); color: #fff;}
+.flash.error {background: linear-gradient(90deg, #ff6a6a 0%, #ee5a24 100%); color: #fff;}
+.flash.info {background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); color: #fff;}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95);}
+    to { opacity: 1; transform: scale(1);}
+}
+@media(max-width:900px){
+    .main-content{padding:24px;}
+    .welcome-title{font-size:2rem;}
+}
+@media(max-width:600px){
+    .container{padding:8px;}
+    .main-content{padding:10px;}
+    .header{padding:10px;}
+    .welcome-title{font-size:1.3rem;}
+    .form-button{padding:10px 18px;}
+}

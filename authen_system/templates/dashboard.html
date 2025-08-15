@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">SecureDash</div>
+                <nav class="nav-links">
+                    <a href="{{ url_for('main.dashboard') }}" class="nav-link active">Dashboard</a>
+                    <a href="{{ url_for('user.settings') }}" class="nav-link">Settings</a>
+                    <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+                </nav>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="welcome-section">
+                <h1 class="welcome-title">Hello, {{ name }}</h1>
+                <p class="welcome-subtitle">Welcome to your secure dashboard.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Active Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Total Logins</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Security Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Days Active</div>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"></div>
+                    <h3 class="card-title">Profile Management</h3>
+                    <p class="card-description">Edit your profile info and preferences.</p>
+                    <a href="{{ url_for('main.profile') }}" class="form-button" style="text-decoration:none; display:inline-block; margin-top:10px;">View Profile</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon"></div>
+                    <h3 class="card-title">Account Settings</h3>
+                    <p class="card-description">Manage your account and security preferences.</p>
+                    <a href="{{ url_for('user.settings') }}" class="form-button" style="text-decoration:none; display:inline-block; margin-top:10px;">Manage Settings</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

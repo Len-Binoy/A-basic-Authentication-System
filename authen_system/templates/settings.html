@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">SecureDash</div>
+                <nav class="nav-links">
+                    <a href="{{ url_for('main.dashboard') }}" class="nav-link">Dashboard</a>
+                    <a href="{{ url_for('user.settings') }}" class="nav-link active">Settings</a>
+                    <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+                </nav>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="welcome-section">
+                <h1 class="welcome-title">Account Settings</h1>
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul class="flashes">
+                  {% for category, message in messages %}
+                    <li class="flash {{ category }}">{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <form method="POST" action="{{ url_for('user.update_profile') }}">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-input" value="{{ user.email }}">
+                </div>
+                <button type="submit" class="form-button">Update Profile</button>
+            </form>
+            <form method="POST" action="{{ url_for('user.change_password') }}">
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" name="current_password" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" name="new_password" class="form-input">
+                </div>
+                <button type="submit" class="form-button">Change Password</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
